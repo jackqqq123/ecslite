@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <AssemblyTitle>LeoECS Lite</AssemblyTitle>
+    <AssemblyDescription>LeoECS Lite - 轻量级ECS框架，基于结构体。性能优先，零或最小分配，最小化内存使用，不依赖任何游戏引擎。</AssemblyDescription>
+    <AssemblyVersion>2025.4.22.0</AssemblyVersion>
+    <FileVersion>2025.4.22.0</FileVersion>
+    <Product>LeoECS Lite</Product>
+    <Company>Leopotam</Company>
+    <Authors>Leopotam</Authors>
+    <Copyright>Copyright (c) 2012-2025 Leopotam</Copyright>
+    <PackageId>Leopotam.EcsLite</PackageId>
+    <PackageVersion>2025.4.22</PackageVersion>
+    <PackageDescription>LeoECS Lite - 轻量级ECS框架，基于结构体。性能优先，零或最小分配，最小化内存使用，不依赖任何游戏引擎。</PackageDescription>
+    <RepositoryUrl>https://github.com/Leopotam/ecslite.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DefineConstants Condition="'$(Configuration)' == 'Debug'">DEBUG</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <!-- 禁用默认编译项，手动指定源文件 -->
+  <PropertyGroup>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="src\**\*.cs" />
+  </ItemGroup>
+
+  <!-- 排除Unity特定的元文件 -->
+  <ItemGroup>
+    <None Remove="**\*.meta" />
+    <None Remove="**\*.asmdef" />
+  </ItemGroup>
+
+</Project>
